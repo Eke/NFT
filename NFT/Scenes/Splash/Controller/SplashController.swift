@@ -15,7 +15,9 @@ class SplashController: UIViewController {
 
   private lazy var logoView: UIImageView = {
     let image = UIImage(named: "logo")
-    return UIImageView(image: image)
+    let view = UIImageView(image: image)
+    view.contentMode = .scaleAspectFit
+    return view
   }()
 
   // MARK: Lifecycle
@@ -54,6 +56,7 @@ class SplashController: UIViewController {
 
     logoView.snp.makeConstraints { make in
       make.center.equalToSuperview()
+      make.size.equalTo(150)
     }
   }
 }

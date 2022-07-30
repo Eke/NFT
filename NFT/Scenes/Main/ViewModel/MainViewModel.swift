@@ -18,6 +18,8 @@ class MainViewModel: NSObject, MainViewModelInputs, MainViewModelOutputs {
   /// data or ui related actions dispatched by viewmodel
   private let actionsSubject: PublishSubject<ViewActions> = PublishSubject<ViewActions>()
 
+  // MARK: LifeCycle
+
   override init() {
     actions = actionsSubject.asObserver()
 
@@ -28,17 +30,21 @@ class MainViewModel: NSObject, MainViewModelInputs, MainViewModelOutputs {
     print("⬅️🗑 deinit MainViewModel")
   }
 
+  // MARK: Inputs
+
   func viewDidLoad() {
     actionsSubject.onNext(.presentSplash)
     Task.detached(priority: .high) { [weak self] in
       guard let strongSelf = self else {
         return
       }
-      try await Task.sleep(seconds: 2)
+      try await Task.sleep(seconds: 0.5)
       // TODO: Restore session
       strongSelf.didFinishPreparingLaunch()
     }
   }
+
+  // MARK: Private Implementations
 
   func didFinishPreparingLaunch() {
     authStateDidChange()

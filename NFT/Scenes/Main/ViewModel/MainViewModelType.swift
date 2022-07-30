@@ -6,7 +6,6 @@
 //
 
 import RxSwift
-
 import RxSwift
 
 extension MainViewModel {

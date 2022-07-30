@@ -24,6 +24,16 @@
 		E3DBC0E428951B9F00B96C6C /* BaseControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DBC0E328951B9F00B96C6C /* BaseControllerView.swift */; };
 		E3DBC0E82895212200B96C6C /* Appdelegate+Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DBC0E72895212200B96C6C /* Appdelegate+Resolver.swift */; };
 		E3DBC0EA2895242300B96C6C /* ControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DBC0E92895242300B96C6C /* ControllersFactory.swift */; };
+		E3DBC0ED28952C5200B96C6C /* AuthViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DBC0EC28952C5200B96C6C /* AuthViewModelType.swift */; };
+		E3DBC0EF28952C5D00B96C6C /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DBC0EE28952C5D00B96C6C /* AuthViewModel.swift */; };
+		E3DBC0F32895358000B96C6C /* DesignSystem+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DBC0F22895358000B96C6C /* DesignSystem+Color.swift */; };
+		E3DBC0F5289535F200B96C6C /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DBC0F4289535F200B96C6C /* Spacing.swift */; };
+		E3DBC0F7289536A400B96C6C /* NFT+CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DBC0F6289536A400B96C6C /* NFT+CGFloat.swift */; };
+		E3DBC0F92895378200B96C6C /* NFT+UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DBC0F82895378200B96C6C /* NFT+UIFont.swift */; };
+		E3DBC0FB289539E200B96C6C /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DBC0FA289539E200B96C6C /* CornerRadius.swift */; };
+		E3DBC0FD28953A3A00B96C6C /* NFT+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DBC0FC28953A3A00B96C6C /* NFT+UIView.swift */; };
+		E3DBC10128953D3000B96C6C /* NFT+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DBC10028953D3000B96C6C /* NFT+UITextField.swift */; };
+		E3DBC103289549D900B96C6C /* NFT+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DBC102289549D900B96C6C /* NFT+String.swift */; };
 		E3FC38E82894FF74002441C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FC38E72894FF74002441C9 /* AppDelegate.swift */; };
 		E3FC38EA2894FF74002441C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FC38E92894FF74002441C9 /* SceneDelegate.swift */; };
 		E3FC38F12894FF75002441C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3FC38F02894FF75002441C9 /* Assets.xcassets */; };
@@ -49,6 +59,16 @@
 		E3DBC0E328951B9F00B96C6C /* BaseControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseControllerView.swift; sourceTree = "<group>"; };
 		E3DBC0E72895212200B96C6C /* Appdelegate+Resolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Appdelegate+Resolver.swift"; sourceTree = "<group>"; };
 		E3DBC0E92895242300B96C6C /* ControllersFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllersFactory.swift; sourceTree = "<group>"; };
+		E3DBC0EC28952C5200B96C6C /* AuthViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModelType.swift; sourceTree = "<group>"; };
+		E3DBC0EE28952C5D00B96C6C /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		E3DBC0F22895358000B96C6C /* DesignSystem+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DesignSystem+Color.swift"; sourceTree = "<group>"; };
+		E3DBC0F4289535F200B96C6C /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
+		E3DBC0F6289536A400B96C6C /* NFT+CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NFT+CGFloat.swift"; sourceTree = "<group>"; };
+		E3DBC0F82895378200B96C6C /* NFT+UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NFT+UIFont.swift"; sourceTree = "<group>"; };
+		E3DBC0FA289539E200B96C6C /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
+		E3DBC0FC28953A3A00B96C6C /* NFT+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NFT+UIView.swift"; sourceTree = "<group>"; };
+		E3DBC10028953D3000B96C6C /* NFT+UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NFT+UITextField.swift"; sourceTree = "<group>"; };
+		E3DBC102289549D900B96C6C /* NFT+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NFT+String.swift"; sourceTree = "<group>"; };
 		E3FC38E42894FF74002441C9 /* NFT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NFT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3FC38E72894FF74002441C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3FC38E92894FF74002441C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +163,7 @@
 		E3DBC0C82895114700B96C6C /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				E3DBC0F02895356700B96C6C /* DesignSystem */,
 				E3DBC0E62895210700B96C6C /* Resolver */,
 				E3DBC0D52895166F00B96C6C /* Controllers */,
 				E3DBC0CC289515C300B96C6C /* Navigator */,
@@ -155,6 +176,11 @@
 			isa = PBXGroup;
 			children = (
 				E3DBC0CA2895115400B96C6C /* NFT+Timer.swift */,
+				E3DBC0F6289536A400B96C6C /* NFT+CGFloat.swift */,
+				E3DBC0F82895378200B96C6C /* NFT+UIFont.swift */,
+				E3DBC0FC28953A3A00B96C6C /* NFT+UIView.swift */,
+				E3DBC10028953D3000B96C6C /* NFT+UITextField.swift */,
+				E3DBC102289549D900B96C6C /* NFT+String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -182,6 +208,7 @@
 		E3DBC0DC2895193C00B96C6C /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				E3DBC0EB28952C4800B96C6C /* ViewModel */,
 				E3DBC0DD2895194D00B96C6C /* Controller */,
 			);
 			path = Auth;
@@ -225,6 +252,33 @@
 				E3DBC0E72895212200B96C6C /* Appdelegate+Resolver.swift */,
 			);
 			path = Resolver;
+			sourceTree = "<group>";
+		};
+		E3DBC0EB28952C4800B96C6C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E3DBC0EC28952C5200B96C6C /* AuthViewModelType.swift */,
+				E3DBC0EE28952C5D00B96C6C /* AuthViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E3DBC0F02895356700B96C6C /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				E3DBC0FA289539E200B96C6C /* CornerRadius.swift */,
+				E3DBC0F4289535F200B96C6C /* Spacing.swift */,
+				E3DBC0F12895357100B96C6C /* Extensions */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		E3DBC0F12895357100B96C6C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E3DBC0F22895358000B96C6C /* DesignSystem+Color.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E3FC38DB2894FF74002441C9 = {
@@ -394,6 +448,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3DBC0C228950F2000B96C6C /* SplashController.swift in Sources */,
+				E3DBC0F92895378200B96C6C /* NFT+UIFont.swift in Sources */,
 				E3FC38E82894FF74002441C9 /* AppDelegate.swift in Sources */,
 				E3DBC0EA2895242300B96C6C /* ControllersFactory.swift in Sources */,
 				E3DBC0CB2895115400B96C6C /* NFT+Timer.swift in Sources */,
@@ -401,14 +456,23 @@
 				E3DBC0DF2895195600B96C6C /* AuthController.swift in Sources */,
 				E3DBC0E428951B9F00B96C6C /* BaseControllerView.swift in Sources */,
 				E3144B2C2895030A003F2A86 /* MainController.swift in Sources */,
+				E3DBC0EF28952C5D00B96C6C /* AuthViewModel.swift in Sources */,
 				E3DBC0DA2895190A00B96C6C /* Navigator.swift in Sources */,
+				E3DBC103289549D900B96C6C /* NFT+String.swift in Sources */,
 				E3FC38EA2894FF74002441C9 /* SceneDelegate.swift in Sources */,
 				E3DBC0D72895167800B96C6C /* BaseController.swift in Sources */,
 				E3DBC0C72895106900B96C6C /* MainViewModel.swift in Sources */,
+				E3DBC0F32895358000B96C6C /* DesignSystem+Color.swift in Sources */,
+				E3DBC0FD28953A3A00B96C6C /* NFT+UIView.swift in Sources */,
+				E3DBC0ED28952C5200B96C6C /* AuthViewModelType.swift in Sources */,
 				E3DBC0D82895190A00B96C6C /* NavigatorPresenter.swift in Sources */,
+				E3DBC0FB289539E200B96C6C /* CornerRadius.swift in Sources */,
+				E3DBC0F7289536A400B96C6C /* NFT+CGFloat.swift in Sources */,
 				E3DBC0D92895190A00B96C6C /* NavigatorConfig.swift in Sources */,
+				E3DBC10128953D3000B96C6C /* NFT+UITextField.swift in Sources */,
 				E3DBC0E82895212200B96C6C /* Appdelegate+Resolver.swift in Sources */,
 				E3DBC0DB2895190A00B96C6C /* AuthNavigator.swift in Sources */,
+				E3DBC0F5289535F200B96C6C /* Spacing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,6 +14,7 @@ final class ControllersFactory {
   }
 
   static func authController() -> AuthController {
-    return AuthController()
+    let viewModel = AuthViewModel()
+    return AuthController(withViewModel: viewModel)
   }
 }
