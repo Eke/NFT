@@ -7,27 +7,41 @@
 
 import RxSwift
 import RxCocoa
+import Resolver
 
 typealias AuthFormErrors = (email: String?, password: String?)
 
 class AuthViewModel: NSObject, AuthViewModelInputs, AuthViewModelOutputs {
   private let disposeBag = DisposeBag()
 
-  let submitButtonEnabled: Driver<Bool>
+  @Injected var userRepository: UserRepositoring
+
+  lazy var submitButtonEnabled: Driver<Bool> = {
+    return Observable.combineLatest(password.asObservable(), email.asObservable(), isAuthenticating) { [weak self] password, email, isAuthenticating in
+      guard let strognSelf = self, !isAuthenticating else {
+        return false
+      }
+
+      return strognSelf.credentialsAreValid(email: email, password: password)
+    }
+    .distinctUntilChanged()
+    .asDriver(onErrorJustReturn: false)
+  }()
+
   let formErrors: Driver<AuthFormErrors>
 
   private let password: BehaviorRelay<String> = BehaviorRelay(value: "")
   private let email: BehaviorRelay<String> = BehaviorRelay(value: "")
 
+  private let isAuthenticating: BehaviorSubject<Bool> = BehaviorSubject<Bool>(value: false)
+
+  lazy var showSpinner: Driver<Bool> = {
+    return isAuthenticating.asDriver(onErrorJustReturn: false)
+  }()
+
   // MARK: LifeCycle
 
   override init() {
-    submitButtonEnabled = Observable.combineLatest(password.asObservable(), email.asObservable()) { password, email in
-      return email.isValidEmail == true && password.isValidPassword == true
-    }
-    .distinctUntilChanged()
-    .asDriver(onErrorJustReturn: false)
-
     formErrors = Observable.combineLatest(password.asObservable(), email.asObservable()) { password, email in
       let emailError: String? = email.isValidEmail || email.isEmpty
         ? nil
@@ -62,11 +76,38 @@ class AuthViewModel: NSObject, AuthViewModelInputs, AuthViewModelOutputs {
   }
 
   func bind(submitButton: UIButton) {
-    submitButton.rx.tap
-      .bind {
-        print("AAA")
+    _ = submitButton.rx.tap
+      .withUnretained(self)
+      .subscribe { owner, _ in
+        owner.authUser()
       }
-      .disposed(by: disposeBag)
+  }
+
+  // MARK: Private Implementations
+  func credentialsAreValid(email: String, password: String) -> Bool {
+    return email.isValidEmail && password.isValidPassword
+  }
+
+  func authUser() {
+    let password = password.value
+    let email = email.value
+
+    guard credentialsAreValid(email: email, password: password) else {
+      return
+    }
+
+    isAuthenticating.onNext(true)
+
+    _ = userRepository.auth(withEmail: email, andPassword: password)
+      .withUnretained(self)
+      .subscribe(onNext: { owner, user in
+        CurrentSessionProvider.shared.set(user: user)
+      }, onError: { [weak self] error in
+        guard let strongSelf = self else {
+          return
+        }
+        strongSelf.isAuthenticating.onNext(false)
+      })
   }
 
   deinit {

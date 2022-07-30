@@ -13,6 +13,7 @@ class MainViewModel: NSObject, MainViewModelInputs, MainViewModelOutputs {
   private let disposeBag = DisposeBag()
 
   /// data or ui related actions dispatched by viewmodel
+  /// Leaving actions here just to showcase how I usualy do this
   let actions: Observable<ViewActions>
 
   /// data or ui related actions dispatched by viewmodel
@@ -47,17 +48,16 @@ class MainViewModel: NSObject, MainViewModelInputs, MainViewModelOutputs {
   // MARK: Private Implementations
 
   func didFinishPreparingLaunch() {
-    authStateDidChange()
-    // TODO: Validate session
-  }
-
-  private func authStateDidChange() {
-    let isAuthed = false
-    if isAuthed {
-      userAuthorizedHandler()
-    } else {
-      userUnauthorizedHandler()
-    }
+    CurrentSessionProvider.shared.isAuthed
+      .withUnretained(self)
+      .subscribe { owner, isAuthed in
+        if isAuthed {
+          owner.userAuthorizedHandler()
+        } else {
+          owner.userUnauthorizedHandler()
+        }
+      }
+      .disposed(by: disposeBag)
   }
 
   private func userAuthorizedHandler() {

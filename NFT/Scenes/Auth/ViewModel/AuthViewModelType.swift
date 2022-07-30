@@ -19,6 +19,7 @@ protocol AuthViewModelInputs {
 protocol AuthViewModelOutputs {
   var submitButtonEnabled: Driver<Bool> { get }
   var formErrors: Driver<AuthFormErrors> { get }
+  var showSpinner: Driver<Bool> { get }
 }
 
 /// Main view model  protocol. each view model used for feed representation must conform to this one.

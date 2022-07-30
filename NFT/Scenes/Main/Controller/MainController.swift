@@ -93,7 +93,6 @@ class MainController: UIViewController {
     let authNavigator = Resolver.resolve(AuthNavigator.self)
     let authController = ControllersFactory.authController()
     let initialViewController = UINavigationController(rootViewController: authController)
-    initialViewController.view.backgroundColor = .red
     authNavigator.baseController = initialViewController
 
     animateFadeTransition(to: initialViewController) { [weak self] in
@@ -106,7 +105,14 @@ class MainController: UIViewController {
 
   /// Present main application flow
   func presentApplication() {
-    print("presentApplication")
+    let initialViewController = UINavigationController(rootViewController: UIViewController())
+
+    animateFadeTransition(to: initialViewController) { [weak self] in
+      guard let weakSelf = self else {
+        fatalError("Missing weakSelf")
+      }
+      weakSelf.setNeedsStatusBarAppearanceUpdate()
+    }
   }
 
   private func animateFadeTransition(to new: UIViewController, completion: (() -> Void)? = nil) {

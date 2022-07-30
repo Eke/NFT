@@ -89,7 +89,7 @@ class AuthController: BaseViewController {
 
       button.configuration?.title = NSLocalizedString("log in".uppercased(), comment: "")
 
-      button.configuration?.showsActivityIndicator = false
+      button.configuration?.showsActivityIndicator = strongSelf.submitButtonSpinnerVisible
     }
 
     return view
@@ -135,12 +135,12 @@ class AuthController: BaseViewController {
       }
 
       button.configuration?.title = NSLocalizedString("register".uppercased(), comment: "")
-
-      button.configuration?.showsActivityIndicator = false
     }
 
     return view
   }()
+
+  private var submitButtonSpinnerVisible: Bool = false
 
   // MARK: Lifecycle
 
@@ -171,6 +171,12 @@ class AuthController: BaseViewController {
     viewModel.outputs.formErrors
       .drive(with: self) { owner, errors in
         owner.didReceive(formErrors: errors)
+      }
+      .disposed(by: disposeBag)
+
+    viewModel.outputs.showSpinner
+      .drive(with: self) { owner, visible in
+        owner.didReceive(spinnerVisibility: visible)
       }
       .disposed(by: disposeBag)
 
@@ -291,6 +297,11 @@ class AuthController: BaseViewController {
   // MARK: Private Implementations
   private func didReceive(submitButtonAvailability isEnabled: Bool) {
     submitButton.isEnabled = isEnabled
+  }
+
+  private func didReceive(spinnerVisibility show: Bool) {
+    submitButtonSpinnerVisible = show
+    submitButton.setNeedsUpdateConfiguration()
   }
 
   private func didReceive(formErrors: AuthFormErrors) {

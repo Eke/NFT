@@ -15,6 +15,11 @@ def utility_pods
   pod 'Resolver'
 end
 
+def networking_pods
+  pod "Alamofire"
+  pod "Moya"
+end
+
 target 'NFT' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
@@ -22,5 +27,5 @@ target 'NFT' do
   ui_pods
   rx_pods
   utility_pods
-
+  networking_pods
 end
