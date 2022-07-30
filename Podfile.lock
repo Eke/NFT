@@ -1,26 +1,38 @@
 PODS:
+  - Resolver (1.5.0)
+  - RiveRuntime (3.0.1)
   - RxCocoa (6.5.0):
     - RxRelay (= 6.5.0)
     - RxSwift (= 6.5.0)
   - RxRelay (6.5.0):
     - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
+  - SnapKit (5.6.0)
 
 DEPENDENCIES:
+  - Resolver
+  - RiveRuntime
   - RxCocoa (= 6.5.0)
   - RxSwift (= 6.5.0)
+  - SnapKit (~> 5.6.0)
 
 SPEC REPOS:
   trunk:
+    - Resolver
+    - RiveRuntime
     - RxCocoa
     - RxRelay
     - RxSwift
+    - SnapKit
 
 SPEC CHECKSUMS:
+  Resolver: 68984624572763018fd8ec7b8e3e8df0e3b6bba5
+  RiveRuntime: 7cc01435aa70fbc4472adfeca011af7aa82d8b5f
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: b4ab9430c6dbb23dc5ea1052012532e513d906a6
+PODFILE CHECKSUM: 13a6db27c826850c6e25cece78563a1ee4574504
 
 COCOAPODS: 1.11.3
