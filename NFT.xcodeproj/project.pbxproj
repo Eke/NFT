@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7BF3FA46E6BE106291C9C88F /* Pods_NFT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A3C7FB4D3117098617EFDA7 /* Pods_NFT.framework */; };
 		E3FC38E82894FF74002441C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FC38E72894FF74002441C9 /* AppDelegate.swift */; };
 		E3FC38EA2894FF74002441C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FC38E92894FF74002441C9 /* SceneDelegate.swift */; };
 		E3FC38EC2894FF74002441C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FC38EB2894FF74002441C9 /* ViewController.swift */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7A3C7FB4D3117098617EFDA7 /* Pods_NFT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NFT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B00DDF38B179AD541803755A /* Pods-NFT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NFT.release.xcconfig"; path = "Target Support Files/Pods-NFT/Pods-NFT.release.xcconfig"; sourceTree = "<group>"; };
 		E3FC38E42894FF74002441C9 /* NFT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NFT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3FC38E72894FF74002441C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3FC38E92894FF74002441C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +27,7 @@
 		E3FC38F02894FF75002441C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E3FC38F32894FF75002441C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E3FC38F52894FF75002441C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3E0C0CA4A01455C313CE915 /* Pods-NFT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NFT.debug.xcconfig"; path = "Target Support Files/Pods-NFT/Pods-NFT.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BF3FA46E6BE106291C9C88F /* Pods_NFT.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,8 @@
 			children = (
 				E3FC38E62894FF74002441C9 /* NFT */,
 				E3FC38E52894FF74002441C9 /* Products */,
+				EB05D1CA28D45A8D70F11D55 /* Pods */,
+				FC203D0DFE6A59F3654AF6AD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +74,23 @@
 			path = NFT;
 			sourceTree = "<group>";
 		};
+		EB05D1CA28D45A8D70F11D55 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F3E0C0CA4A01455C313CE915 /* Pods-NFT.debug.xcconfig */,
+				B00DDF38B179AD541803755A /* Pods-NFT.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FC203D0DFE6A59F3654AF6AD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7A3C7FB4D3117098617EFDA7 /* Pods_NFT.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +98,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E3FC38F82894FF75002441C9 /* Build configuration list for PBXNativeTarget "NFT" */;
 			buildPhases = (
+				795F2803A7E6246BBDC1F111 /* [CP] Check Pods Manifest.lock */,
 				E3FC38E02894FF74002441C9 /* Sources */,
 				E3FC38E12894FF74002441C9 /* Frameworks */,
 				E3FC38E22894FF74002441C9 /* Resources */,
+				AF06D95E2FC90EFF6F2757C6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +158,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		795F2803A7E6246BBDC1F111 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NFT-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF06D95E2FC90EFF6F2757C6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NFT/Pods-NFT-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NFT/Pods-NFT-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NFT/Pods-NFT-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E3FC38E02894FF74002441C9 /* Sources */ = {
@@ -282,11 +350,13 @@
 		};
 		E3FC38F92894FF75002441C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3E0C0CA4A01455C313CE915 /* Pods-NFT.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 688865WYRV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NFT/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -309,11 +379,13 @@
 		};
 		E3FC38FA2894FF75002441C9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B00DDF38B179AD541803755A /* Pods-NFT.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 688865WYRV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NFT/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
