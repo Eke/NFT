@@ -13,6 +13,7 @@ import RxCocoa
 protocol AuthViewModelInputs {
   func bind(emailField: UITextField, andPasswordField passwordField: UITextField)
   func bind(submitButton: UIButton)
+  func bind(registrationButton: UIButton)
 }
 
 /// Protocol for AuthViewModelType getters
@@ -22,7 +23,6 @@ protocol AuthViewModelOutputs {
   var showSpinner: Driver<Bool> { get }
 }
 
-/// Main view model  protocol. each view model used for feed representation must conform to this one.
 protocol AuthViewModelType {
   /// inputs are used to give data to view model
   var inputs: AuthViewModelInputs { get }

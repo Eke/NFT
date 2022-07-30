@@ -1,36 +1,19 @@
 //
-//  AuthController.swift
+//  RegistrationController.swift
 //  NFT
 //
 //  Created by Erekle Meskhi on 30.07.22.
 //
 
 import UIKit
-import Resolver
 import RxSwift
 
-class AuthController: BaseViewController {
+class RegistrationController: BaseViewController {
   private let disposeBag = DisposeBag()
 
-  private let viewModel: AuthViewModelType
+  private let viewModel: RegistrationViewModelType
 
   private let wrapperView: UIView = UIView(frame: .zero)
-
-  private lazy var logoView: UIImageView = {
-    let image = UIImage(named: "logo")
-    let view = UIImageView(image: image)
-    view.contentMode = .scaleAspectFill
-    return view
-  }()
-
-  private lazy var titleView: UILabel = {
-    let view = UILabel()
-    view.text = NSLocalizedString("welcome".uppercased(), comment: "")
-    view.font = .systemFont(ofSize: 48, weight: .bold)
-    view.textColor = .neutral8
-    view.textAlignment = .center
-    return view
-  }()
 
   private lazy var formHolder: UIView = {
     let view = UIView(frame: .zero)
@@ -51,7 +34,7 @@ class AuthController: BaseViewController {
     view.textColor = .neutral8
     view.autocorrectionType = .no
     view.autocapitalizationType = .none
-    view.textContentType = .emailAddress
+    view.textContentType = .username
     view.keyboardType = .emailAddress
     return view
   }()
@@ -62,16 +45,26 @@ class AuthController: BaseViewController {
     view.backgroundColor = .neutral1
     view.setLeftPaddingPoints(Spacing.spacing7)
     view.textColor = .neutral8
+    view.isSecureTextEntry = true
+    view.textContentType = .password
+    return view
+  }()
+
+  private lazy var ageField: UITextField = {
+    let view = UITextField(frame: .zero)
+    view.placeholder = NSLocalizedString("age".capitalized, comment: "")
+    view.backgroundColor = .neutral1
+    view.setLeftPaddingPoints(Spacing.spacing7)
+    view.textColor = .neutral8
     view.autocorrectionType = .no
     view.autocapitalizationType = .none
-    view.textContentType = .password
-    view.isSecureTextEntry = true
+    view.keyboardType = .numberPad
     return view
   }()
 
   private lazy var submitButton: UIButton = {
     var config = UIButton.Configuration.filled()
-    config.baseBackgroundColor = .primary1
+    config.baseBackgroundColor = .primary3
     config.background.cornerRadius = CornerRadius.radius7
 
     config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
@@ -86,7 +79,7 @@ class AuthController: BaseViewController {
         return
       }
 
-      button.configuration?.title = NSLocalizedString("log in".uppercased(), comment: "")
+      button.configuration?.title = NSLocalizedString("let's go".uppercased(), comment: "")
 
       button.configuration?.showsActivityIndicator = strongSelf.submitButtonSpinnerVisible
     }
@@ -108,34 +101,10 @@ class AuthController: BaseViewController {
     return view
   }()
 
-  private lazy var orLabel: UILabel = {
+  private lazy var ageErrorLabel: UILabel = {
     let view = UILabel()
-    view.text = NSLocalizedString("or", comment: "").uppercased()
-    view.textColor = .neutral8
-    view.font = .preferredFont(forTextStyle: .callout).bold()
-    return view
-  }()
-
-  private lazy var registrationButton: UIButton = {
-    var config = UIButton.Configuration.filled()
-    config.baseBackgroundColor = .primary3
-    config.background.cornerRadius = CornerRadius.radius7
-
-    config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
-      var outgoing = incoming
-      outgoing.font = .preferredFont(forTextStyle: .body).bold()
-      return outgoing
-    }
-
-    let view = UIButton(configuration: config)
-    view.configurationUpdateHandler = { [weak self] button in
-      guard let strongSelf = self else {
-        return
-      }
-
-      button.configuration?.title = NSLocalizedString("register".uppercased(), comment: "")
-    }
-
+    view.textColor = .primary3
+    view.font = .preferredFont(forTextStyle: .caption1)
     return view
   }()
 
@@ -143,9 +112,11 @@ class AuthController: BaseViewController {
 
   // MARK: Lifecycle
 
-  init(withViewModel vm: AuthViewModelType) {
+  init(withViewModel vm: RegistrationViewModelType) {
     viewModel = vm
     super.init(nibName: nil, bundle: nil)
+
+    title = NSLocalizedString("registration".uppercased(), comment: "")
 
     setup()
   }
@@ -179,16 +150,15 @@ class AuthController: BaseViewController {
       }
       .disposed(by: disposeBag)
 
-    viewModel.inputs.bind(emailField: emailField, andPasswordField: passwordField)
+    viewModel.inputs.bind(emailField: emailField, passwordField: passwordField, andAgeField: ageField)
     viewModel.inputs.bind(submitButton: submitButton)
-    viewModel.inputs.bind(registrationButton: registrationButton)
   }
 
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
     formWrapper.makeRoundedCorners(.allCorners, withRadius: CornerRadius.radius2)
 
-    for field in [emailField, passwordField] {
+    for field in [emailField, passwordField, ageField] {
       field.layer.cornerRadius = CornerRadius.radius7
       field.layer.borderWidth = 1.0
       field.layer.borderColor = UIColor.clear.cgColor
@@ -199,17 +169,15 @@ class AuthController: BaseViewController {
     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapView))
     view.addGestureRecognizer(tapGesture)
 
-    wrapperView.addSubview(logoView)
     wrapperView.addSubview(formWrapper)
-    wrapperView.addSubview(titleView)
 
     formWrapper.addSubview(emailField)
     formWrapper.addSubview(emailErrorLabel)
     formWrapper.addSubview(passwordField)
     formWrapper.addSubview(passwordErrorLabel)
+    formWrapper.addSubview(ageField)
+    formWrapper.addSubview(ageErrorLabel)
     formWrapper.addSubview(submitButton)
-    formWrapper.addSubview(orLabel)
-    formWrapper.addSubview(registrationButton)
     formHolder.addSubview(formWrapper)
 
     wrapperView.addSubview(formHolder)
@@ -220,32 +188,14 @@ class AuthController: BaseViewController {
   }
 
   private func layout() {
-    logoView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
-    logoView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
-
     wrapperView.snp.makeConstraints { make in
       make.leading.trailing.top.equalTo(view.safeAreaLayoutGuide)
       make.bottom.equalTo(view.keyboardLayoutGuide.snp.top)
     }
 
-    logoView.snp.makeConstraints { make in
-      make.centerX.equalToSuperview()
-      make.height.lessThanOrEqualTo(150.0)
-      make.height.greaterThanOrEqualTo(44.0)
-      make.width.equalTo(logoView.snp.height)
-      make.bottom.equalTo(titleView.snp.top)
-      make.top.greaterThanOrEqualToSuperview()
-    }
-
-    titleView.snp.remakeConstraints { make in
-      make.centerX.equalToSuperview()
-      make.bottom.equalTo(formHolder.snp.top)
-    }
-
     formHolder.snp.remakeConstraints { make in
       make.leading.trailing.equalToSuperview()
-      make.bottom.equalToSuperview()
-      make.top.equalTo(wrapperView.snp.centerY).priority(.medium)
+      make.centerY.equalTo(wrapperView.snp.centerY)
     }
 
     formWrapper.snp.makeConstraints { make in
@@ -277,26 +227,23 @@ class AuthController: BaseViewController {
       make.top.equalTo(passwordField.snp.bottom).offset(Spacing.spacing8)
     }
 
-    submitButton.snp.makeConstraints { make in
-      make.leading.equalTo(emailField)
-      make.trailing.equalTo(orLabel.snp.leading).offset(Spacing.spacing8.negative)
-      make.height.equalTo(44.0)
+    ageField.snp.makeConstraints { make in
+      make.leading.trailing.equalTo(emailField)
+      make.height.equalTo(emailField)
       make.top.equalTo(passwordErrorLabel.snp.bottom).offset(Spacing.spacing8)
     }
 
-    orLabel.snp.makeConstraints { make in
-      make.centerX.equalToSuperview()
-      make.centerY.equalTo(submitButton.snp.centerY)
+    ageErrorLabel.snp.makeConstraints { make in
+      make.leading.trailing.equalTo(emailField)
+      make.top.equalTo(ageField.snp.bottom).offset(Spacing.spacing8)
     }
 
-    registrationButton.snp.makeConstraints { make in
-      make.leading.equalTo(orLabel.snp.trailing).offset(Spacing.spacing8)
-      make.trailing.equalTo(emailField)
+    submitButton.snp.makeConstraints { make in
+      make.leading.trailing.equalTo(emailField)
       make.height.equalTo(44.0)
-      make.centerY.equalTo(submitButton.snp.centerY)
+      make.top.equalTo(ageErrorLabel.snp.bottom).offset(Spacing.spacing8)
       make.bottom.equalTo(formWrapper.snp.bottom).offset(Spacing.spacing7.negative)
     }
-
   }
 
   // MARK: Private Implementations
@@ -309,9 +256,10 @@ class AuthController: BaseViewController {
     submitButton.setNeedsUpdateConfiguration()
   }
 
-  private func didReceive(formErrors: AuthFormErrors) {
+  private func didReceive(formErrors: RegistrationFormErrors) {
     emailErrorLabel.text = formErrors.email
     passwordErrorLabel.text = formErrors.password
+    ageErrorLabel.text = formErrors.age
 
     UIView.animate(withDuration: 0.15, delay: 0) { [weak self] in
       guard let strongSelf = self else {

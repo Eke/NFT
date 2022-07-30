@@ -17,4 +17,9 @@ final class ControllersFactory {
     let viewModel = AuthViewModel()
     return AuthController(withViewModel: viewModel)
   }
+
+  static func registrationController() -> RegistrationController {
+    let viewModel = RegistrationViewModel()
+    return RegistrationController(withViewModel: viewModel)
+  }
 }

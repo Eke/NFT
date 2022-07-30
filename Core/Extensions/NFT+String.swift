@@ -19,4 +19,12 @@ extension String {
   var isValidPassword: Bool {
     6...16 ~= self.count
   }
+
+  var isValidAge: Bool {
+    guard let int = Int(self) else {
+      return false
+    }
+
+    return 18...90 ~= int
+  }
 }

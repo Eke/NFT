@@ -12,6 +12,8 @@ import Resolver
 typealias AuthFormErrors = (email: String?, password: String?)
 
 class AuthViewModel: NSObject, AuthViewModelInputs, AuthViewModelOutputs {
+  @Injected private var navigator: AuthNavigator
+
   private let disposeBag = DisposeBag()
 
   @Injected var userRepository: UserRepositoring
@@ -61,6 +63,10 @@ class AuthViewModel: NSObject, AuthViewModelInputs, AuthViewModelOutputs {
     super.init()
   }
 
+  deinit {
+    print("⬅️🗑 deinit AuthViewModel")
+  }
+
   // MARK: Inputs
 
   func bind(emailField: UITextField, andPasswordField passwordField: UITextField) {
@@ -83,6 +89,21 @@ class AuthViewModel: NSObject, AuthViewModelInputs, AuthViewModelOutputs {
       }
   }
 
+  func bind(registrationButton: UIButton) {
+
+
+    _ = registrationButton.rx.tap
+      .withUnretained(self)
+      .subscribe { owner, _ in
+        owner.navigator.baseController?.view.endEditing(true)
+        owner.navigator.navigate(to: .registration)
+      }
+//      .asDriver()
+//      .drive(with: self) { owner, _ in
+//        owner.navigator.navigate(to: .registration)
+//      }
+  }
+
   // MARK: Private Implementations
   func credentialsAreValid(email: String, password: String) -> Bool {
     return email.isValidEmail && password.isValidPassword
@@ -96,6 +117,8 @@ class AuthViewModel: NSObject, AuthViewModelInputs, AuthViewModelOutputs {
       return
     }
 
+    navigator.baseController?.view.endEditing(true)
+
     isAuthenticating.onNext(true)
 
     _ = userRepository.auth(withEmail: email, andPassword: password)
@@ -108,9 +131,5 @@ class AuthViewModel: NSObject, AuthViewModelInputs, AuthViewModelOutputs {
         }
         strongSelf.isAuthenticating.onNext(false)
       })
-  }
-
-  deinit {
-    print("⬅️🗑 deinit AuthViewModel")
   }
 }

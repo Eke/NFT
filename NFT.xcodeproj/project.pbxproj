@@ -11,6 +11,9 @@
 		E3144B2C2895030A003F2A86 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3144B2B2895030A003F2A86 /* MainController.swift */; };
 		E3144B302895076D003F2A86 /* splash.riv in Resources */ = {isa = PBXBuildFile; fileRef = E3144B2F2895076D003F2A86 /* splash.riv */; };
 		E3144B3228950780003F2A86 /* shapes.riv in Resources */ = {isa = PBXBuildFile; fileRef = E3144B3128950780003F2A86 /* shapes.riv */; };
+		E3AD699B2895924C0012BCD9 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AD699A2895924C0012BCD9 /* RegistrationController.swift */; };
+		E3AD699F2895B82C0012BCD9 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AD699E2895B82C0012BCD9 /* RegistrationViewModel.swift */; };
+		E3AD69A12895B8570012BCD9 /* RegistrationViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AD69A02895B8570012BCD9 /* RegistrationViewModelType.swift */; };
 		E3DBC0C228950F2000B96C6C /* SplashController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DBC0C128950F2000B96C6C /* SplashController.swift */; };
 		E3DBC0C52895104800B96C6C /* MainViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DBC0C42895104800B96C6C /* MainViewModelType.swift */; };
 		E3DBC0C72895106900B96C6C /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DBC0C62895106900B96C6C /* MainViewModel.swift */; };
@@ -49,6 +52,10 @@
 		E3144B2B2895030A003F2A86 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		E3144B2F2895076D003F2A86 /* splash.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = splash.riv; sourceTree = "<group>"; };
 		E3144B3128950780003F2A86 /* shapes.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = shapes.riv; sourceTree = "<group>"; };
+		E3AD699A2895924C0012BCD9 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
+		E3AD699C2895AFC10012BCD9 /* NFT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NFT.entitlements; sourceTree = "<group>"; };
+		E3AD699E2895B82C0012BCD9 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		E3AD69A02895B8570012BCD9 /* RegistrationViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModelType.swift; sourceTree = "<group>"; };
 		E3DBC0C128950F2000B96C6C /* SplashController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashController.swift; sourceTree = "<group>"; };
 		E3DBC0C42895104800B96C6C /* MainViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelType.swift; sourceTree = "<group>"; };
 		E3DBC0C62895106900B96C6C /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -99,6 +106,7 @@
 		E3144B282895029C003F2A86 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E3AD6998289592390012BCD9 /* Registration */,
 				E3DBC0DC2895193C00B96C6C /* Auth */,
 				E3DBC0BF28950F0F00B96C6C /* Splash */,
 				E3144B29289502A2003F2A86 /* Main */,
@@ -139,6 +147,32 @@
 				E3144B2F2895076D003F2A86 /* splash.riv */,
 			);
 			path = Rive;
+			sourceTree = "<group>";
+		};
+		E3AD6998289592390012BCD9 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				E3AD699D2895B81F0012BCD9 /* ViewModel */,
+				E3AD6999289592410012BCD9 /* Coontroller */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		E3AD6999289592410012BCD9 /* Coontroller */ = {
+			isa = PBXGroup;
+			children = (
+				E3AD699A2895924C0012BCD9 /* RegistrationController.swift */,
+			);
+			path = Coontroller;
+			sourceTree = "<group>";
+		};
+		E3AD699D2895B81F0012BCD9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E3AD699E2895B82C0012BCD9 /* RegistrationViewModel.swift */,
+				E3AD69A02895B8570012BCD9 /* RegistrationViewModelType.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		E3DBC0BF28950F0F00B96C6C /* Splash */ = {
@@ -352,6 +386,7 @@
 		E3FC38E62894FF74002441C9 /* NFT */ = {
 			isa = PBXGroup;
 			children = (
+				E3AD699C2895AFC10012BCD9 /* NFT.entitlements */,
 				E3DBC0E028951B8100B96C6C /* Shared */,
 				E3144B2D28950426003F2A86 /* Assets */,
 				E3144B282895029C003F2A86 /* Scenes */,
@@ -499,12 +534,14 @@
 				E3DBC0C228950F2000B96C6C /* SplashController.swift in Sources */,
 				E3DBC0F92895378200B96C6C /* NFT+UIFont.swift in Sources */,
 				E3FC38E82894FF74002441C9 /* AppDelegate.swift in Sources */,
+				E3AD69A12895B8570012BCD9 /* RegistrationViewModelType.swift in Sources */,
 				E3DBC0EA2895242300B96C6C /* ControllersFactory.swift in Sources */,
 				E3DBC0CB2895115400B96C6C /* NFT+Timer.swift in Sources */,
 				E3DBC10728957C6900B96C6C /* User.swift in Sources */,
 				E3DBC10E2895840D00B96C6C /* CurrentSessionProvider.swift in Sources */,
 				E3DBC0C52895104800B96C6C /* MainViewModelType.swift in Sources */,
 				E3DBC0DF2895195600B96C6C /* AuthController.swift in Sources */,
+				E3AD699F2895B82C0012BCD9 /* RegistrationViewModel.swift in Sources */,
 				E3DBC0E428951B9F00B96C6C /* BaseControllerView.swift in Sources */,
 				E3144B2C2895030A003F2A86 /* MainController.swift in Sources */,
 				E3DBC10B28957CCC00B96C6C /* UserRepository.swift in Sources */,
@@ -524,6 +561,7 @@
 				E3DBC10128953D3000B96C6C /* NFT+UITextField.swift in Sources */,
 				E3DBC0E82895212200B96C6C /* Appdelegate+Resolver.swift in Sources */,
 				E3DBC0DB2895190A00B96C6C /* AuthNavigator.swift in Sources */,
+				E3AD699B2895924C0012BCD9 /* RegistrationController.swift in Sources */,
 				E3DBC0F5289535F200B96C6C /* Spacing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -662,6 +700,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NFT/NFT.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 688865WYRV;
@@ -691,6 +730,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NFT/NFT.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 688865WYRV;
