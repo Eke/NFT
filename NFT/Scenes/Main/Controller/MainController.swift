@@ -96,10 +96,10 @@ class MainController: UIViewController {
     authNavigator.baseController = initialViewController
 
     animateFadeTransition(to: initialViewController) { [weak self] in
-      guard let weakSelf = self else {
-        fatalError("Missing weakSelf")
+      guard let strongSelf = self else {
+        fatalError("Missing strongSelf")
       }
-      weakSelf.setNeedsStatusBarAppearanceUpdate()
+      strongSelf.setNeedsStatusBarAppearanceUpdate()
     }
   }
 
@@ -108,10 +108,10 @@ class MainController: UIViewController {
     let initialViewController = UINavigationController(rootViewController: UIViewController())
 
     animateFadeTransition(to: initialViewController) { [weak self] in
-      guard let weakSelf = self else {
-        fatalError("Missing weakSelf")
+      guard let strongSelf = self else {
+        fatalError("Missing strongSelf")
       }
-      weakSelf.setNeedsStatusBarAppearanceUpdate()
+      strongSelf.setNeedsStatusBarAppearanceUpdate()
     }
   }
 
