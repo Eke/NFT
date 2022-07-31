@@ -105,9 +105,21 @@ class MainController: UIViewController {
 
   /// Present main application flow
   func presentApplication() {
-    let initialViewController = UINavigationController(rootViewController: UIViewController())
+    let feed = UINavigationController(rootViewController: UIViewController())
+    feed.tabBarItem.title = "Feed"
+    feed.tabBarItem.image = UIImage(systemName: "photo.circle.fill")
 
-    animateFadeTransition(to: initialViewController) { [weak self] in
+    let profile = ControllersFactory.currentUserController()
+    profile.tabBarItem.title = "Profile"
+    profile.tabBarItem.image = UIImage(systemName: "person.circle.fill")
+
+    let tabBarController = UITabBarController()
+    tabBarController.viewControllers = [
+      feed,
+      profile
+    ]
+
+    animateFadeTransition(to: tabBarController) { [weak self] in
       guard let strongSelf = self else {
         fatalError("Missing strongSelf")
       }
