@@ -9,9 +9,9 @@ import UIKit
 import SDWebImage
 
 extension UICollectionViewCell {
-    func feedConfiguration(forItem item: FeedItem) -> FeedItemContentView.Configuration {
-      FeedItemContentView.Configuration(item: item)
-    }
+  func feedConfiguration(forItem item: FeedItem) -> FeedItemContentView.Configuration {
+    FeedItemContentView.Configuration(item: item)
+  }
 }
 
 

@@ -32,4 +32,9 @@ final class ControllersFactory {
     let viewModel = FeedViewModel()
     return FeedController(withViewModel: viewModel)
   }
+
+  static func feedDetailsController(item: FeedItem) -> FeedDetailsController {
+    let viewModel = FeedDetailsViewModel(withItem: item)
+    return FeedDetailsController(withViewModel: viewModel)
+  }
 }
