@@ -1,9 +1,10 @@
 PODS:
   - Alamofire (5.6.1)
-  - Moya (15.0.0):
-    - Moya/Core (= 15.0.0)
   - Moya/Core (15.0.0):
     - Alamofire (~> 5.0)
+  - Moya/RxSwift (15.0.0):
+    - Moya/Core
+    - RxSwift (~> 6.0)
   - Resolver (1.5.0)
   - RiveRuntime (3.0.1)
   - RxCocoa (6.5.0):
@@ -12,15 +13,19 @@ PODS:
   - RxRelay (6.5.0):
     - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
+  - SDWebImage (5.12.5):
+    - SDWebImage/Core (= 5.12.5)
+  - SDWebImage/Core (5.12.5)
   - SnapKit (5.6.0)
 
 DEPENDENCIES:
   - Alamofire
-  - Moya
+  - Moya/RxSwift
   - Resolver
   - RiveRuntime
   - RxCocoa (= 6.5.0)
   - RxSwift (= 6.5.0)
+  - SDWebImage
   - SnapKit (~> 5.6.0)
 
 SPEC REPOS:
@@ -32,6 +37,7 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
+    - SDWebImage
     - SnapKit
 
 SPEC CHECKSUMS:
@@ -42,8 +48,9 @@ SPEC CHECKSUMS:
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  SDWebImage: 0905f1b7760fc8ac4198cae0036600d67478751e
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: 6b78900b359ac4c05250ba5714f44bdf87e885ac
+PODFILE CHECKSUM: fd0b51528dcc72cf3995d9d54752f95ed7f685a7
 
 COCOAPODS: 1.11.3

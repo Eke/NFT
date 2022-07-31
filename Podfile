@@ -17,7 +17,11 @@ end
 
 def networking_pods
   pod "Alamofire"
-  pod "Moya"
+  pod "Moya/RxSwift"
+end
+
+def image_pods
+  pod "SDWebImage"
 end
 
 target 'NFT' do
@@ -28,4 +32,5 @@ target 'NFT' do
   rx_pods
   utility_pods
   networking_pods
+  image_pods
 end

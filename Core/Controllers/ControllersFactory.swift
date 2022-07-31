@@ -27,4 +27,9 @@ final class ControllersFactory {
     let viewModel = CurrentUserViewModel()
     return CurrentUserController(withViewModel: viewModel)
   }
+
+  static func feedController() -> FeedController {
+    let viewModel = FeedViewModel()
+    return FeedController(withViewModel: viewModel)
+  }
 }
