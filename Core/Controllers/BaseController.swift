@@ -13,10 +13,15 @@ open class BaseViewController: UIViewController {
 
   open override func loadView() {
     guard hasDefaultBackground else {
-      return view = UIView()
+      self.view = UIView()
+      return
     }
 
-    let view = BaseControllerView(frame: .zero)
-    self.view = view
+    let customView = UIView()
+    self.view = customView
+
+    let backgroundView = BaseControllerView(frame: .zero)
+    customView.addSubview(backgroundView)
   }
+  
 }
