@@ -14,6 +14,9 @@
 		E3AD699B2895924C0012BCD9 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AD699A2895924C0012BCD9 /* RegistrationController.swift */; };
 		E3AD699F2895B82C0012BCD9 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AD699E2895B82C0012BCD9 /* RegistrationViewModel.swift */; };
 		E3AD69A12895B8570012BCD9 /* RegistrationViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AD69A02895B8570012BCD9 /* RegistrationViewModelType.swift */; };
+		E3AD69A528964CC00012BCD9 /* CurrentUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AD69A428964CC00012BCD9 /* CurrentUserController.swift */; };
+		E3AD69A8289650730012BCD9 /* CurrentUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AD69A7289650730012BCD9 /* CurrentUserViewModel.swift */; };
+		E3AD69AA289650B60012BCD9 /* CurrentUserViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AD69A9289650B60012BCD9 /* CurrentUserViewModelType.swift */; };
 		E3DBC0C228950F2000B96C6C /* SplashController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DBC0C128950F2000B96C6C /* SplashController.swift */; };
 		E3DBC0C52895104800B96C6C /* MainViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DBC0C42895104800B96C6C /* MainViewModelType.swift */; };
 		E3DBC0C72895106900B96C6C /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DBC0C62895106900B96C6C /* MainViewModel.swift */; };
@@ -56,6 +59,9 @@
 		E3AD699C2895AFC10012BCD9 /* NFT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NFT.entitlements; sourceTree = "<group>"; };
 		E3AD699E2895B82C0012BCD9 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		E3AD69A02895B8570012BCD9 /* RegistrationViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModelType.swift; sourceTree = "<group>"; };
+		E3AD69A428964CC00012BCD9 /* CurrentUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserController.swift; sourceTree = "<group>"; };
+		E3AD69A7289650730012BCD9 /* CurrentUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserViewModel.swift; sourceTree = "<group>"; };
+		E3AD69A9289650B60012BCD9 /* CurrentUserViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserViewModelType.swift; sourceTree = "<group>"; };
 		E3DBC0C128950F2000B96C6C /* SplashController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashController.swift; sourceTree = "<group>"; };
 		E3DBC0C42895104800B96C6C /* MainViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelType.swift; sourceTree = "<group>"; };
 		E3DBC0C62895106900B96C6C /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -106,6 +112,7 @@
 		E3144B282895029C003F2A86 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E3AD69A228964CA90012BCD9 /* CurrentUser */,
 				E3AD6998289592390012BCD9 /* Registration */,
 				E3DBC0DC2895193C00B96C6C /* Auth */,
 				E3DBC0BF28950F0F00B96C6C /* Splash */,
@@ -171,6 +178,32 @@
 			children = (
 				E3AD699E2895B82C0012BCD9 /* RegistrationViewModel.swift */,
 				E3AD69A02895B8570012BCD9 /* RegistrationViewModelType.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E3AD69A228964CA90012BCD9 /* CurrentUser */ = {
+			isa = PBXGroup;
+			children = (
+				E3AD69A628964D990012BCD9 /* ViewModel */,
+				E3AD69A328964CB40012BCD9 /* Controller */,
+			);
+			path = CurrentUser;
+			sourceTree = "<group>";
+		};
+		E3AD69A328964CB40012BCD9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E3AD69A428964CC00012BCD9 /* CurrentUserController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E3AD69A628964D990012BCD9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E3AD69A7289650730012BCD9 /* CurrentUserViewModel.swift */,
+				E3AD69A9289650B60012BCD9 /* CurrentUserViewModelType.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -536,6 +569,7 @@
 				E3FC38E82894FF74002441C9 /* AppDelegate.swift in Sources */,
 				E3AD69A12895B8570012BCD9 /* RegistrationViewModelType.swift in Sources */,
 				E3DBC0EA2895242300B96C6C /* ControllersFactory.swift in Sources */,
+				E3AD69A8289650730012BCD9 /* CurrentUserViewModel.swift in Sources */,
 				E3DBC0CB2895115400B96C6C /* NFT+Timer.swift in Sources */,
 				E3DBC10728957C6900B96C6C /* User.swift in Sources */,
 				E3DBC10E2895840D00B96C6C /* CurrentSessionProvider.swift in Sources */,
@@ -544,10 +578,12 @@
 				E3AD699F2895B82C0012BCD9 /* RegistrationViewModel.swift in Sources */,
 				E3DBC0E428951B9F00B96C6C /* BaseControllerView.swift in Sources */,
 				E3144B2C2895030A003F2A86 /* MainController.swift in Sources */,
+				E3AD69AA289650B60012BCD9 /* CurrentUserViewModelType.swift in Sources */,
 				E3DBC10B28957CCC00B96C6C /* UserRepository.swift in Sources */,
 				E3DBC0EF28952C5D00B96C6C /* AuthViewModel.swift in Sources */,
 				E3DBC0DA2895190A00B96C6C /* Navigator.swift in Sources */,
 				E3DBC103289549D900B96C6C /* NFT+String.swift in Sources */,
+				E3AD69A528964CC00012BCD9 /* CurrentUserController.swift in Sources */,
 				E3FC38EA2894FF74002441C9 /* SceneDelegate.swift in Sources */,
 				E3DBC0D72895167800B96C6C /* BaseController.swift in Sources */,
 				E3DBC0C72895106900B96C6C /* MainViewModel.swift in Sources */,
