@@ -20,7 +20,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="pOR-di-y5c">
-                                <rect key="frame" x="104.5" y="345.5" width="205" height="205"/>
+                                <rect key="frame" x="132" y="373" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="pOR-di-y5c" secondAttribute="height" multiplier="1:1" id="gwy-b2-3va"/>
+                                    <constraint firstAttribute="width" constant="150" id="vRZ-j0-tu6"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -42,7 +46,7 @@
     </scenes>
     <resources>
         <image name="launch-screen-background" width="375" height="812"/>
-        <image name="logo" width="205" height="205"/>
+        <image name="logo" width="627" height="500"/>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

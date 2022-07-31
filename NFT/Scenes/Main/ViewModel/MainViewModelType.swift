@@ -6,7 +6,6 @@
 //
 
 import RxSwift
-
 import RxSwift
 
 extension MainViewModel {
@@ -28,7 +27,6 @@ protocol MainViewModelOutputs {
   var actions: Observable<MainViewModel.ViewActions> { get }
 }
 
-/// Main view model  protocol. each view model used for feed representation must conform to this one.
 protocol MainViewModelType {
   /// inputs are used to give data to view model
   var inputs: MainViewModelInputs { get }

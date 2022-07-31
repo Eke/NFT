@@ -1,4 +1,9 @@
 PODS:
+  - Alamofire (5.6.1)
+  - Moya (15.0.0):
+    - Moya/Core (= 15.0.0)
+  - Moya/Core (15.0.0):
+    - Alamofire (~> 5.0)
   - Resolver (1.5.0)
   - RiveRuntime (3.0.1)
   - RxCocoa (6.5.0):
@@ -10,6 +15,8 @@ PODS:
   - SnapKit (5.6.0)
 
 DEPENDENCIES:
+  - Alamofire
+  - Moya
   - Resolver
   - RiveRuntime
   - RxCocoa (= 6.5.0)
@@ -18,6 +25,8 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Alamofire
+    - Moya
     - Resolver
     - RiveRuntime
     - RxCocoa
@@ -26,6 +35,8 @@ SPEC REPOS:
     - SnapKit
 
 SPEC CHECKSUMS:
+  Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
+  Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   Resolver: 68984624572763018fd8ec7b8e3e8df0e3b6bba5
   RiveRuntime: 7cc01435aa70fbc4472adfeca011af7aa82d8b5f
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
@@ -33,6 +44,6 @@ SPEC CHECKSUMS:
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: 13a6db27c826850c6e25cece78563a1ee4574504
+PODFILE CHECKSUM: 6b78900b359ac4c05250ba5714f44bdf87e885ac
 
 COCOAPODS: 1.11.3

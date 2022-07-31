@@ -13,10 +13,13 @@ class MainViewModel: NSObject, MainViewModelInputs, MainViewModelOutputs {
   private let disposeBag = DisposeBag()
 
   /// data or ui related actions dispatched by viewmodel
+  /// Leaving actions here just to showcase how I usualy do this
   let actions: Observable<ViewActions>
 
   /// data or ui related actions dispatched by viewmodel
   private let actionsSubject: PublishSubject<ViewActions> = PublishSubject<ViewActions>()
+
+  // MARK: LifeCycle
 
   override init() {
     actions = actionsSubject.asObserver()
@@ -28,30 +31,33 @@ class MainViewModel: NSObject, MainViewModelInputs, MainViewModelOutputs {
     print("⬅️🗑 deinit MainViewModel")
   }
 
+  // MARK: Inputs
+
   func viewDidLoad() {
     actionsSubject.onNext(.presentSplash)
     Task.detached(priority: .high) { [weak self] in
       guard let strongSelf = self else {
         return
       }
-      try await Task.sleep(seconds: 2)
+      try await Task.sleep(seconds: 0.5)
       // TODO: Restore session
       strongSelf.didFinishPreparingLaunch()
     }
   }
 
-  func didFinishPreparingLaunch() {
-    authStateDidChange()
-    // TODO: Validate session
-  }
+  // MARK: Private Implementations
 
-  private func authStateDidChange() {
-    let isAuthed = false
-    if isAuthed {
-      userAuthorizedHandler()
-    } else {
-      userUnauthorizedHandler()
-    }
+  func didFinishPreparingLaunch() {
+    CurrentSessionProvider.shared.isAuthed
+      .withUnretained(self)
+      .subscribe { owner, isAuthed in
+        if isAuthed {
+          owner.userAuthorizedHandler()
+        } else {
+          owner.userUnauthorizedHandler()
+        }
+      }
+      .disposed(by: disposeBag)
   }
 
   private func userAuthorizedHandler() {

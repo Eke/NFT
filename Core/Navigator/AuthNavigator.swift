@@ -10,6 +10,7 @@ import UIKit.UIViewController
 final class AuthNavigator: Navigator {
   enum Destination {
     case auth
+    case registration
   }
 
   private let presenter = NavigationPresenter()
@@ -31,6 +32,8 @@ final class AuthNavigator: Navigator {
     switch destination {
     case .auth:
       return ControllersFactory.authController()
+    case .registration:
+      return ControllersFactory.registrationController()
     }
   }
 
