@@ -126,7 +126,7 @@ class RegistrationController: BaseViewController {
   }
 
   deinit {
-    print("⬅️🗑 deinit AuthController")
+    print("⬅️🗑 deinit RegistrationController")
   }
 
   override func viewDidLoad() {
