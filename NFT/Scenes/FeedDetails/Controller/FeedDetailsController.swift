@@ -1,30 +1,36 @@
 //
-//  FeedController.swift
+//  FeedDetailsController.swift
 //  NFT
 //
 //  Created by Erekle Meskhi on 31.07.22.
 //
 
 import UIKit
-import SnapKit
 import RxSwift
 
-class FeedController: BaseViewController {
+class FeedDetailsController: BaseViewController {
   override var hasDefaultBackground: Bool {
     return false
   }
 
-  private let disposeBag = DisposeBag()
-
-  private let viewModel: FeedViewModelType
+  private let viewModel: FeedDetailsViewModelType
 
   private let compositionalLayout: UICollectionViewCompositionalLayout = {
     let layout = UICollectionViewCompositionalLayout { sectionIndex, _ -> NSCollectionLayoutSection? in
-      return CollectionViewLaoutBuilder.standartSection()
+      let sectionLayoutKind = FeedDetailsViewModel.FeedDetailsSection.allCases[sectionIndex]
+      switch sectionLayoutKind {
+      case .general:
+        return CollectionViewLaoutBuilder.standartSection()
+      case .tags, .specs:
+        return CollectionViewLaoutBuilder.horizontalPills(hasHeader: sectionLayoutKind == .specs)
+      case .stats:
+        return CollectionViewLaoutBuilder.horizontalPills(scroll: false)
+      }
     }
 
     let config = UICollectionViewCompositionalLayoutConfiguration()
     config.scrollDirection = .vertical
+
     layout.configuration = config
 
     return layout
@@ -41,8 +47,8 @@ class FeedController: BaseViewController {
   // MARK: Lifecycle
 
   /// Default initializer
-  /// - Parameter vm: instance of `FeedViewModelType`
-  init(withViewModel vm: FeedViewModelType) {
+  /// - Parameter vm: instance of `FeedDetailsViewModelType`
+  init(withViewModel vm: FeedDetailsViewModelType) {
     viewModel = vm
     super.init(nibName: nil, bundle: nil)
 
@@ -52,7 +58,7 @@ class FeedController: BaseViewController {
   }
 
   deinit {
-    print("⬅️🗑 deinit FeedController")
+    print("⬅️🗑 deinit FeedDetailsController")
   }
 
   required init?(coder: NSCoder) {

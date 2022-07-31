@@ -71,8 +71,7 @@ class MainController: UIViewController {
     case .presentSplash:
       presentSplash()
     case .presentAuth:
-//      presentAuthGate()
-      presentApplication()
+      presentAuthGate()
     case .presentApplication:
       presentApplication()
     }
@@ -106,10 +105,13 @@ class MainController: UIViewController {
 
   /// Present main application flow
   func presentApplication() {
+    let feednavigator = Resolver.resolve(FeedNavigator.self)
     let feed = UINavigationController(rootViewController: ControllersFactory.feedController())
     feed.navigationBar.prefersLargeTitles = true
     feed.tabBarItem.title = "Feed"
     feed.tabBarItem.image = UIImage(systemName: "photo.circle.fill")
+
+    feednavigator.baseController = feed
 
     let profile = ControllersFactory.currentUserController()
     profile.tabBarItem.title = "Profile"

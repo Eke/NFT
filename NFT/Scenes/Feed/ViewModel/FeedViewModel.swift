@@ -18,6 +18,8 @@ class FeedViewModel: NSObject, FeedViewModelInputs, FeedViewModelOutputs {
   private let disposeBag = DisposeBag()
 
   @Injected private var pixabayAPI: ApiClient<PixabayService>
+  @Injected private var navigator: FeedNavigator
+
   // MARK: LifeCycle
 
   private let feedData: BehaviorRelay<[FeedItem]> = BehaviorRelay<[FeedItem]>(value: [])
@@ -138,6 +140,11 @@ extension FeedViewModel: UICollectionViewDelegate {
   }
 
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    print(feedData.value[indexPath.row])
+    navigator.navigate(
+      to: .details(item: feedData.value[indexPath.row]),
+      withCofniguration: NavigatorConfig(
+        navigationType: .modal(style: .automatic)
+      )
+    )
   }
 }

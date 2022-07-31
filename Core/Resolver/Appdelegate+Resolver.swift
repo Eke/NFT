@@ -14,6 +14,7 @@ extension Resolver: ResolverRegistering {
   public static func registerAllServices() {
     Resolver.register { UserLocalRepository() as UserRepositoring }.scope(.shared)
     Resolver.register { AuthNavigator() }.scope(.shared)
+    Resolver.register { FeedNavigator() }.scope(.shared)
     Resolver.register { ApiClient<PixabayService>(targetType: PixabayService.self) }.scope(.shared)
   }
 }
